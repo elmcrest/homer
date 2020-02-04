@@ -5,7 +5,7 @@ from xknx import XKNX
 from xknx.io import GatewayScanner
 from xknx.devices import Light
 
-
+xknx = XKNX()
 async def handle(request):
     name = request.match_info.get("name", "Anonymous")
     text = "Hello, " + name
@@ -17,7 +17,7 @@ async def handle(request):
     # await asyncio.sleep(2)
     # await light.set_off()
     # await xknx.stop()
-    xknx = XKNX()
+    
     gatewayscanner = GatewayScanner(xknx)
     gateways = await gatewayscanner.scan()
 
